@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ürün Listesi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Yazı tipi */
+            background-color: #f4f4f4; /* Arka plan rengi */
+            margin: 0; /* Kenar boşluklarını sıfırlama */
+            padding: 20px; /* İç boşluk ekleme */
+            display: flex; /* Flexbox ile içerik düzenleme */
+            flex-direction: column;
+            align-items: center; /* Ortalamak için */
+        }
+        .product-container {
+            display: grid; /* Grid yapısı kullanarak düzenleme */
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Kutu boyutu ayarı */
+            gap: 20px; /* Kutular arasındaki boşluk */
+            width: 100%; /* Tam genişlik */
+            max-width: 1200px; /* Maksimum genişlik */
+        }
+        .product-card {
+            background-color: white; /* Kart rengi */
+            border: 1px solid #ddd; /* Kart sınırı */
+            border-radius: 8px; /* Yuvarlatılmış köşeler */
+            padding: 15px; /* İç boşluk */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Gölgelendirme */
+            text-align: center; /* Metin ortalama */
+        }
+        .pagination {
+            margin-top: 30px; /* Üst boşluk */
+        }
+        .step-links {
+            display: flex; /* Esnek düzen */
+            justify-content: center; /* Ortalamak için */
+            align-items: center; /* Dikey ortalama */
+        }
+        .step-links a {
+            border: 1px solid #ddd; /* Bağlantı sınırı */
+            border-radius: 50%; /* Yuvarlak görünüm */
+            width: 30px; /* Genişlik */
+            height: 30px; /* Yükseklik */
+            display: flex; /* Flexbox kullanarak içeriği ortalama */
+            justify-content: center; /* Yatay ortalama */
+            align-items: center; /* Dikey ortalama */
+            margin: 0 5px; /* Kenar boşlukları */
+            text-decoration: none; /* Alt çizgi kaldır */
+            color: #333; /* Metin rengi */
+            transition: background-color 0.3s; /* Geçiş efekti */
+        }
+        .step-links a:hover {
+            background-color: #e0e0e0; /* Üzerine gelindiğinde arka plan rengi */
+        }
+        .current {
+            margin: 0 10px; /* Kenar boşluğu */
+            font-weight: bold; /* Kalın yazı */
+            color: #007BFF; /* Sayfa numarası rengi */
+        }
+    </style>
+</head>
+<body>
+    <div class="product-container">
+        {% for product in page_obj %}
+            <div class="product-card">
+                <h3>{{ product.name }}</h3>
+                <p>Fiyat: {{ product.price }}</p>
+                
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo;</a> <!-- İlk -->
+                <a href="?page={{ page_obj.previous_page_number }}">&#8249;</a> <!-- Önceki -->
+            {% endif %}
+
+            <span class="current">
+                Sayfa {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">&#8250;</a> <!-- Sonraki -->
+                <a href="?page={{ page_obj.paginator.num_pages }}">&raquo;</a> <!-- Son -->
+            {% endif %}
+        </span>
+    </div>
+</body>
+</html>

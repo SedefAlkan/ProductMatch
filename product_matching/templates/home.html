@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ana Sayfa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Yazı tipi */
+            background-color: #f4f4f4; /* Arka plan rengi */
+            margin: 0;
+            padding: 0;
+            display: flex; /* Flexbox kullanarak ortalama */
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Tam yükseklik */
+        }
+        h1 {
+            font-size: 3em; /* Başlık boyutu */
+            color: #333; /* Başlık rengi */
+            margin-bottom: 20px; /* Alt boşluk */
+        }
+        p {
+            font-size: 1.5em; /* Paragraf boyutu */
+            color: #666; /* Paragraf rengi */
+            margin-bottom: 30px; /* Alt boşluk */
+        }
+        ul {
+            list-style-type: none; /* Madde işaretlerini kaldır */
+            padding: 0; /* İç boşlukları kaldır */
+        }
+        li {
+            margin: 15px 0; /* Her bir bağlantı için üst ve alt boşluk */
+        }
+        a {
+            font-size: 1.5em; /* Bağlantı boyutu */
+            color: #0066cc; /* Bağlantı rengi */
+            text-decoration: none; /* Alt çizgiyi kaldır */
+        }
+        a:hover {
+            text-decoration: underline; /* Üzerine gelindiğinde alt çizgi */
+        }
+    </style>
+</head>
+<body>
+    <h1>Hoş geldiniz!</h1>
+    
+    <ul>
+        <li><a href="{% url 'kbkmarket' %}">KBK Market Ürünleri</a></li>
+        <li><a href="{% url 'partymarty' %}">Party Marty Ürünleri</a></li>
+        <li><a href="{% url 'find_similar_products' %}">Benzer Ürünler</a></li>
+    </ul>
+</body>
+</html>
