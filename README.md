@@ -3,7 +3,6 @@
 
 ProductMatch, farklı e-ticaret platformlarından (KBK Market ve Party Marty) alınan ürün verilerini akıllı metin benzerliği algoritmaları kullanarak eşleştiren Django tabanlı bir web uygulamasıdır. Bu proje, aynı ürünün farklı platformlardaki varyasyonlarını otomatik olarak tespit ederek ürün karşılaştırması yapmayı sağlar.
 
-
 ## Özellikler
 
 - **Çoklu Veritabanı Desteği**: Farklı kaynaklardan (KBK Market ve Party Marty) ürün verilerini ayrı veritabanlarında yönetme
